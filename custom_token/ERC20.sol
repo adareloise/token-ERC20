@@ -33,10 +33,23 @@ interface IERC20{
 
 contract ERC20Basic is IERC20{
 
+    string public constant name = "ERCBLOCK1";
+    string public constant symbol = "ERC";
+    uint8 public constant decimals = 18; 
+
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
 
     using SafeMath for uint256;
+
+    mapping (address => uint) balences;
+    mapping (address => mapping (address => uint)) allowed;
+    uint256 totalSupply_;
+
+    constructor (uint256 initSupply) public{
+        totalSupply_ = initSupply;
+        balences[msg.sender] = totalSupply_;
+    }
 
     function totalSupply() public override view returns (uint256){
         return 0;

@@ -217,11 +217,11 @@
 	},
 	"sources": {
 		"custom_token/ERC20.sol": {
-			"keccak256": "0x47dadf61a696ae79a35ad742834fc2b18cebe3673237a9307d6e5b79d43521de",
+			"keccak256": "0x9e166c9be3e24ac7777438c7f96c0dde9a7ceada725c6cbc4f12fe61f4b40e27",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5150539f551699e432622ebb6004fd0cb43e26d7a7897cdb97c3c34f9708923f",
-				"dweb:/ipfs/QmXxHAFrkvbuHtxVXYmTBuc224GfMvUy5dkw1fMHbkimgT"
+				"bzz-raw://e1d051db85f2e52a0adbeca3b8b44398e8df4ca16f65674ed043db67c26495c5",
+				"dweb:/ipfs/QmSkyYKjgjHavMZ5K4e92rgKpThqM1EJUwJHXrbcxxHLxa"
 			]
 		},
 		"custom_token/SafeMath.sol": {
