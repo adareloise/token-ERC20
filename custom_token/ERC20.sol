@@ -55,6 +55,11 @@ contract ERC20Basic is IERC20{
         return totalSupply_;
     }
 
+    function increaseTotalSupply (uint newTokensAmout) public {
+        totalSupply_ += newTokensAmout;
+        balences[msg.sender] += newTokensAmout;
+    }
+
     function balanceOf(address OwnerToken) public override view returns (uint256){
         return balences[OwnerToken];
     }
@@ -63,8 +68,14 @@ contract ERC20Basic is IERC20{
         return allowed[owner][delegate];
     }
 
-    function transfer(address recipient, uint256 amount) public override returns (bool){
-        return false;
+    function transfer(address recipient, uint256 numTokens) public override returns (bool){
+        
+        require(numTokens <= balences[msg.sender]);
+        balences[msg.sender] = balences[msg.sender].sub(numTokens);
+        balences[recipient] = balences[recipient].add(numTokens);
+        emit Transfer(msg.sender, recipient, numTokens);
+
+        return true;
     }
 
     function approve(address spender, uint256 amount) public override returns (bool){
