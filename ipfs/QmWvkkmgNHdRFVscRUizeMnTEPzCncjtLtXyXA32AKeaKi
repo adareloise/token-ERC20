@@ -10,10 +10,10 @@ interface IERC20{
     function totalSupply() external view returns (uint256);
 
     //total quantity for address
-    function balanceOf(address OwnerToken) external view returns (uint256);
+    function balanceOf(address account) external view returns (uint256);
 
     //return the token number that the spender will be able to spend on behalf of the owner
-    function allawance(address owner, address delegate) external  view returns (uint256);
+    function allawance(address owner, address spender) external  view returns (uint256);
 
     //return boolean value result of operation
     function transfer(address recipient, uint256 amount) external returns (bool);
@@ -22,7 +22,7 @@ interface IERC20{
     function approve(address spender, uint256 amount) external returns (bool);
 
     //return boolean value result of pass operation in number of tokens whit allowance()
-    function transferFrom(address sender, address recipient, uint256) external returns (bool);
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
 
     //emit event on a number of tokens from source to destination
     event Transfer(address indexed from, address indexed to, uint256 value);
@@ -42,13 +42,13 @@ contract ERC20Basic is IERC20{
 
     using SafeMath for uint256;
 
-    mapping (address => uint) balences;
+    mapping (address => uint) balances;
     mapping (address => mapping (address => uint)) allowed;
     uint256 totalSupply_;
 
     constructor (uint256 initSupply) public{
         totalSupply_ = initSupply;
-        balences[msg.sender] = totalSupply_;
+        balances[msg.sender] = totalSupply_;
     }
 
     function totalSupply() public override view returns (uint256){
@@ -57,11 +57,11 @@ contract ERC20Basic is IERC20{
 
     function increaseTotalSupply (uint newTokensAmout) public {
         totalSupply_ += newTokensAmout;
-        balences[msg.sender] += newTokensAmout;
+        balances[msg.sender] += newTokensAmout;
     }
 
     function balanceOf(address OwnerToken) public override view returns (uint256){
-        return balences[OwnerToken];
+        return balances[OwnerToken];
     }
 
     function allawance(address owner, address delegate) public override view returns (uint256){
@@ -70,21 +70,30 @@ contract ERC20Basic is IERC20{
 
     function transfer(address recipient, uint256 numTokens) public override returns (bool){
         
-        require(numTokens <= balences[msg.sender]);
-        balences[msg.sender] = balences[msg.sender].sub(numTokens);
-        balences[recipient] = balences[recipient].add(numTokens);
+        require(numTokens <= balances[msg.sender]);
+        balances[msg.sender] = balances[msg.sender].sub(numTokens);
+        balances[recipient] = balances[recipient].add(numTokens);
         emit Transfer(msg.sender, recipient, numTokens);
 
         return true;
     }
 
-    function approve(address spender, uint256 amount) public override returns (bool){
-        return false;
+    function approve(address delegate, uint256 numTokens) public override returns (bool){
+        allowed[msg.sender][delegate] = numTokens;
+        emit Transfer(msg.sender, delegate, numTokens);
+        return true;
     }
 
-    function transferFrom(address sender, address recipient, uint256) public override returns (bool){
-        return false;
+    function transferFrom(address owner, address buyer, uint256 numTokens) public override returns (bool){
+        require(numTokens <= balances[owner]);
+        require(numTokens <= allowed[owner][msg.sender]);
+        
+        balances[owner] = balances[owner].sub(numTokens);
+        allowed[owner][msg.sender] = allowed[owner][msg.sender].sub(numTokens);
+        balances[buyer] = balances[buyer].add(numTokens); 
+      
+        emit Transfer(owner, buyer, numTokens);
 
+        return true;
     }
-
 }

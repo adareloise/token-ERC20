@@ -64,7 +64,7 @@
 					},
 					{
 						"internalType": "address",
-						"name": "delegate",
+						"name": "spender",
 						"type": "address"
 					}
 				],
@@ -107,7 +107,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "OwnerToken",
+						"name": "account",
 						"type": "address"
 					}
 				],
@@ -173,7 +173,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
@@ -217,11 +217,11 @@
 	},
 	"sources": {
 		"custom_token/ERC20.sol": {
-			"keccak256": "0xb44d3396d6607166d8900e1daca7feed06e8062350433037d3b794412b5bbc02",
+			"keccak256": "0x9ba291aad7501152cdf29f620fda4623801b0e9b25f588b9903ea2f7f683e581",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6e8ab2a2b4b499eda2c2b4c818a403e3d34c6d765fa1dc0c1f7c91a68ebe691b",
-				"dweb:/ipfs/Qmb8BvncVWgeqsueAJrceSYpnRmWmbsMQUWGzqMxMx7hYY"
+				"bzz-raw://800b28465bca81963f6fc9254d7698b05ec62ffdabee9f6714b13e70ed4ba5f6",
+				"dweb:/ipfs/QmXssimj2K7GKF264ySD7TcZfNyhHsus5mzp1uynsa8owp"
 			]
 		},
 		"custom_token/SafeMath.sol": {
