@@ -1,0 +1,99 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "Client",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokens_buy",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Disney/disney.sol": "Disney"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Disney/ERC20.sol": {
+			"keccak256": "0x9ba291aad7501152cdf29f620fda4623801b0e9b25f588b9903ea2f7f683e581",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://800b28465bca81963f6fc9254d7698b05ec62ffdabee9f6714b13e70ed4ba5f6",
+				"dweb:/ipfs/QmXssimj2K7GKF264ySD7TcZfNyhHsus5mzp1uynsa8owp"
+			]
+		},
+		"Disney/SafeMath.sol": {
+			"keccak256": "0x10b026f5bf6336222f045103d95b94c408fcd4b36095222431626663f519da6a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cb82567f03c95c1518b6d09700323ef2d11bcf587a23f220b5aef4cd0cdf433f",
+				"dweb:/ipfs/QmURQ56waPNQnLAeQYVDui2RJnC5fEKw9v2rA6L4PZhSsb"
+			]
+		},
+		"Disney/disney.sol": {
+			"keccak256": "0xec6eb2dc3821079cb345d7ed6f00d611cd9eb201d24c059d9df96f77ad14e237",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://81bb0d70ab97df0b699ab676730b0ca1fc56fa1ec8d2ba5491c8c07883101bc3",
+				"dweb:/ipfs/QmeVB8kPndV4joey6d4NoTcJshsuNHd4g5c8wjSbsfmAgf"
+			]
+		}
+	},
+	"version": 1
+}
